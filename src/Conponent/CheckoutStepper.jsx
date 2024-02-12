@@ -19,7 +19,6 @@ const CheckoutStepper = ({ stepConfig = [] }) => {
       marginLeft: stepRef.current[0].offsetWidth / 2,
       marginRight: stepRef.current[stepConfig.length - 1].offsetWidth / 2,
     });
-    console.log(margins.marginLeft);
   }, [stepRef.current]);
 
   /**
@@ -86,10 +85,12 @@ const CheckoutStepper = ({ stepConfig = [] }) => {
         ></div>
       </div>
 
-      <ActiveComponent />
+      <div className="activecomponent">
+        <ActiveComponent />
+      </div>
 
       {!isComplete && (
-        <div>
+        <div className="btnWrapper">
           <button className="btn" onClick={HandleNext}>
             {currentStep === stepConfig.length ? "Finish " : "Next"}
           </button>
